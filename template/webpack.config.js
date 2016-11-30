@@ -93,7 +93,7 @@ let config = {
       'components': path.join(__dirname, 'app/src/components'),
       'src': path.join(__dirname, 'app/src')
     },
-    extensions: ['.js', '.vue', '.json', '.css'],
+    extensions: [{{#if_eq vueVersion '1.x'}}'', {{/if_eq}}'.js', '.vue', '.json', '.css'],
 {{#if_eq vueVersion '1.x'}}
     fallback: [path.join(__dirname, 'app/node_modules')]
 {{else}}
