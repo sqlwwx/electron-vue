@@ -1,5 +1,10 @@
 'use strict'
+{{#if_eq vueVersion '2.x'}}
 
+// Set BABEL_ENV to use proper preset config
+process.env.BABEL_ENV = 'testing'
+
+{{/if_eq}}
 // Enable use of es2015 on required files
 require('babel-register')({
   ignore: /node_modules/

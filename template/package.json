@@ -22,7 +22,7 @@
     "test": "{{#unit}}npm run unit{{/unit}}{{#unit}}{{#e2e}} && {{/e2e}}{{/unit}}{{#e2e}}npm run e2e{{/e2e}}",
     {{/testing}}
     {{#if unit}}
-    "unit": "karma start test/unit/karma.conf.js",
+    "unit": "cross-env BABEL_ENV=testing karma start test/unit/karma.conf.js",
     {{/if}}
     {{#isEnabled plugins 'vue-router'}}
     "vue:route": "node tasks/vue/route.js",
@@ -65,7 +65,7 @@
     "eslint-plugin-import": "^1.8.1",
     {{/if_eq}}
     {{/eslint}}
-    "extract-text-webpack-plugin": "^1.0.1",
+    "extract-text-webpack-plugin": "^2.0.0-beta",
     "file-loader": "^0.8.5",
     "html-webpack-plugin": "^2.16.1",
     "json-loader": "^0.5.4",
@@ -98,8 +98,8 @@
     "vue-html-loader": "^1.2.2",
     {{ver vueVersion 'loader'}}
     "vue-style-loader": "^1.0.0",
-    "webpack": "^1.13.0",
-    "webpack-dev-server": "^1.14.1"
+    "webpack": "^2.1.0-beta.25",
+    "webpack-dev-server": "^2.1.0-beta.0"
   },
   "dependencies": {}
 }

@@ -1,4 +1,16 @@
 {
+{{#if_eq vueVersion '2.x'}}
+  "env": {
+    "testing": {
+      "presets": ["es2015", "stage-0"]
+    }
+  },
+  "presets": [
+    ["es2015", { "modules": false }],
+    "stage-0"
+  ],
+{{else}}
   "presets": ["es2015", "stage-0"],
+{{/if_eq}}
   "plugins": ["transform-runtime"]
 }
