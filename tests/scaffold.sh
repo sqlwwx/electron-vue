@@ -14,3 +14,7 @@ npm test
 
 # Run webpack and build electron
 npm run build
+
+# Clean up current scaffold
+cd ..
+rm -rf "$1"
