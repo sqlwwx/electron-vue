@@ -48,6 +48,10 @@ let config = {
         loader: 'json-loader'
       },
       {
+        test: /\.node$/,
+        loader: 'node-loader'
+      },
+      {
         test: /\.vue$/,
         loader: 'vue-loader'{{#if_eq vueVersion '2.x'}},
         options: {
