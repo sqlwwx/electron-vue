@@ -40,7 +40,7 @@ function depLookup () {
  * Recursively remove all empty directories
  */
 function removeEmptyDirectories (buildPath, e, p, a, cb) {
-  require('delete-empty').sync(path.join(buildPath, '/node_modules'), { force: true })
+  require('delete-empty').sync(path.join(buildPath), { force: true })
   cb()
 }
 
@@ -50,7 +50,12 @@ function removeEmptyDirectories (buildPath, e, p, a, cb) {
 function build (mainModules) {
   let options = require('../config').building
 
-  options.ignore = options.ignore.toString().replace('node_modules', `node_modules\\/(?!${mainModules}).*`)
+  for (let i = 0; i < options.ignore.length; i++) {
+    if (options.ignore[i].toString() === '/\\bnode_modules\\b/') {
+      options.ignore[i] = new RegExp(`\\bnode_modules\\/(?!${mainModules}).*\\b`)
+    }
+  }
+
   options.afterCopy = [ removeEmptyDirectories ]
 
   console.log('\x1b[34mBuilding electron app(s)...\n\x1b[0m')
@@ -61,7 +66,6 @@ function build (mainModules) {
     } else {
       console.log('Build(s) successful!')
       console.log(appPaths)
-
       console.log('\n\x1b[34mDONE\n\x1b[0m')
     }
   })
