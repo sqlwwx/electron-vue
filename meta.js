@@ -68,6 +68,10 @@ module.exports = {
       type: 'confirm',
       message: 'Setup end-to-end testing with Spectron + Mocha?',
       require: true
+    },
+    vimmer: {
+      type: 'confirm',
+      message: 'A vimmer?'
     }
   },
   helpers: {

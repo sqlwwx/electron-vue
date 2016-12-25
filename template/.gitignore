@@ -11,3 +11,17 @@ npm-debug.log
 npm-debug.log.*
 thumbs.db
 !.gitkeep
+{{#if vimmer}}
+# Created by .ignore support plugin (hsz.mobi)
+### Vim template
+# swap
+[._]*.s[a-w][a-z]
+[._]s[a-w][a-z]
+# session
+Session.vim
+# temporary
+.netrwhist
+*~
+# auto-generated tag files
+tags
+{{/if}}
